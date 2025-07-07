@@ -67,17 +67,8 @@ Edit
 ./run_pipeline.sh
 You should see output like:
 
-bash
-Copy
-Edit
-✅ Saved test: tests/test_AuthController.cpp
-✅ Saved refined test: tests/test_AuthController.cpp
-[==========] Running 1 test from 1 test suite.
-[  PASSED  ] 1 test.
-🧪 Run Tests Only
-bash
-Copy
-Edit
+![Screenshot 2025-07-07 063713](https://github.com/user-attachments/assets/2f83a691-3361-44a4-8ce6-b9a1a8296ed4)
+
 cd build
 ./runTests
 📈 Generate Code Coverage Report

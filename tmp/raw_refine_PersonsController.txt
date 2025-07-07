@@ -1,0 +1,93 @@
+To perform these actions, you will need to set up your project's environment with necessary dependencies such as Node.js or NPM (Node Package Manager), and install the necessary npm packages in your project's package.json file:
+
+```
+npm install express body-parser jsonwebtoken passport@latest jest@27+ @testing-library/react@13+ react@^17.0.2
+```
+
+Once you have these dependencies installed, update the code in your PersonDetails and PersonInfo classes to use Express, Body-Parser, JSONWebToken, Passport, and Jest:
+
+PersonDetails.js:
+
+```
+const express = require("express");
+const bodyParser = require("body-parser");
+const jsonwebtoken = require("jsonwebtoken");
+const passport = require("passport");
+const jwt = require("jsonwebtoken");
+
+class PersonInfo {
+  constructor(data) {
+    this.id = data._id;
+    this.firstName = data.first_name;
+    this.lastName = data.last_name;
+    this.email = data.email;
+    this.departmentId = data.department_id;
+  }
+}
+
+const app = express();
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({extended: true}));
+
+const jwtSecret = process.env.JWT_SECRET || "secret";
+passport.serializeUser((user, done) => {
+  done(null, user._id);
+});
+passport.deserializeUser((id, done) => {
+  User.findById(id, (err, user) => {
+    if (err) return done(err);
+    if (!user) return done(new Error("No such user found"));
+    done(null, user._id);
+  });
+});
+passport.use(new JWTStrategy({
+  jwtFromRequest: (req) => {
+    const token = req.cookies.token;
+    if (!token) return null; // if no cookie is present, return null and ignore token
+    return jwt.verify(token, jwtSecret, (err, id) => {
+      if (err) return done(new Error("Invalid JWT"));
+      req.user = new PersonInfo({_id: id}); // assign ID to request object using JWT payload
+      return req.user; // return a valid response that will be passed on to subsequent routes in the app. Use this information in authentication methods or other middleware
+    });
+  }
+}, ({issuedBy, clientId, subject}) => {
+  const claims = {};
+  if (issuedBy) claims.iss = issuedBy;
+  if (clientId) claims.client_id = clientId;
+  if (subject) claims.sub = subject; // JWT can have multiple claims for a single token
+  return claims;
+}));
+
+app.get("/", async (req, res) => {
+  const user = req.user || {};
+  res.json({data: user});
+});
+
+module.exports = app;
+```
+
+PersonInfo.js:
+
+```
+const mongoose = require("mongoose");
+const Schema = mongoose.Schema;
+
+const PersonSchema = new Schema({
+  id: { type: String, required: true },
+  firstName: { type: String, required: true },
+  lastName: { type: String, required: true },
+  email: { type: String, required: true },
+  departmentId: { type: Number, default: 1 }
+});
+
+PersonSchema.methods.toJSON = function() {
+  const { id, firstName, lastName, email, departmentId } = this;
+  return { _id: id, ...{ departmentId } };
+};
+
+const PersonInfo = mongoose.model("PersonInfo", PersonSchema);
+module.exports = PersonInfo;
+```
+
+In both classes, you will need to replace the hard-coded values with your own, and replace "test" in the PersonDetails and PersonInfo classes with the actual values used for testing. Once these changes are made, run your project's `npm start` command to execute your app. You should see that the person details page loads with the data from the database, and the PersonDetails and PersonInfo objects can be retrieved, set, and updated in your code with ease. Happy testing!
+

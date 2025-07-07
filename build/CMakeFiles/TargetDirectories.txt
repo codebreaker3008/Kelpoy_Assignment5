@@ -1,0 +1,4 @@
+/mnt/c/Users/KIIT/Desktop/cpp-unit-test-gen/build/CMakeFiles/runTests.dir
+/mnt/c/Users/KIIT/Desktop/cpp-unit-test-gen/build/CMakeFiles/test.dir
+/mnt/c/Users/KIIT/Desktop/cpp-unit-test-gen/build/CMakeFiles/edit_cache.dir
+/mnt/c/Users/KIIT/Desktop/cpp-unit-test-gen/build/CMakeFiles/rebuild_cache.dir

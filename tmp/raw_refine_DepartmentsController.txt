@@ -1,0 +1,13 @@
+To create a C++ test refiner for the DepartmentController, you need to follow these instructions:
+
+1. Define required headers for each test case using the "headers" section in the test file's JSON configuration.
+2. Write unit tests that exercise all necessary methods and interactions of the DepartmentController with expected results as specified in the "expectedResults" section.
+3. Remove duplicate or redundant tests by ensuring that each test suite has only one unique test method and that test methods have consistent formatting for all test cases.
+4. Write meaningful test descriptions that include relevant context, inputs, and outputs to help you understand and verify the results of your test.
+5. Use appropriate test data to ensure that tests are reproducible and reliable across different runs.
+6. Ensure that all required headers are present in the JSON configuration file for each test suite.
+7. Fix any issues with formatting or syntax in the generated API requests, especially if they're used in multiple test suites.
+8. Follow standard C++ conventions and best practices for naming, indentation, and coding style.
+9. Use version control to track changes made to the generated tests and their associated JSON configuration files.
+10. Run the tests using appropriate tools (such as TestRail or Travis CI) and report any issues or concerns to the test author or project owner.
+

@@ -1,0 +1,7 @@
+instructions:
+  - Fix the test file using the provided build logs.
+  - Do not regenerate the entire file — only fix the broken lines.
+  - Ensure all missing includes are added.
+  - Use mocks where external dependencies cause linker issues.
+  - Output a clean GoogleTest-compatible test file.
+  - The file should compile successfully with the original source.

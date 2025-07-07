@@ -1,0 +1,29 @@
+Start testing: Jul 07 05:03 IST
+----------------------------------------------------------
+1/1 Testing: AllUnitTests
+1/1 Test: AllUnitTests
+Command: "/mnt/c/Users/KIIT/Desktop/cpp-unit-test-gen/build/runTests"
+Directory: /mnt/c/Users/KIIT/Desktop/cpp-unit-test-gen/build
+"AllUnitTests" start time: Jul 07 05:03 IST
+Output:
+----------------------------------------------------------
+Running main() from ./googletest/src/gtest_main.cc
+[==========] Running 1 test from 1 test suite.
+[----------] Global test environment set-up.
+[----------] 1 test from AuthControllerTest
+[ RUN      ] AuthControllerTest.ValidatePasswordTest
+[       OK ] AuthControllerTest.ValidatePasswordTest (0 ms)
+[----------] 1 test from AuthControllerTest (0 ms total)
+
+[----------] Global test environment tear-down
+[==========] 1 test from 1 test suite ran. (0 ms total)
+[  PASSED  ] 1 test.
+<end of output>
+Test time =   0.02 sec
+----------------------------------------------------------
+Test Passed.
+"AllUnitTests" end time: Jul 07 05:03 IST
+"AllUnitTests" time elapsed: 00:00:00
+----------------------------------------------------------
+
+End testing: Jul 07 05:03 IST
